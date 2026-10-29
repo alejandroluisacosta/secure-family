@@ -46,7 +46,11 @@ Traffic light: 8 or more safe answers is green, 5 to 7 is amber, fewer than 5 is
 
 ## Deploy
 
-It is a static site. On Vercel, import the repository and keep the defaults for Vite (build command `npm run build`, output folder `dist`). Every pull request then gets its own preview link.
+The site is published with GitHub Pages at https://alejandroluisacosta.github.io/secure-family/.
+
+`.github/workflows/deploy.yml` runs the tests on every pull request. On every push to `main` it also builds the site and publishes it. One-time setup: **Settings → Pages → Source: GitHub Actions**.
+
+It is a plain static site (`npm run build` → `dist/`), so any static host works too.
 
 ## Roadmap
 
