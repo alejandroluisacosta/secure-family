@@ -2,7 +2,6 @@
 
 export const ui = {
   en: {
-    brand: 'SECURE FAMILY',
     language: 'Language',
     skip: 'Skip to content',
     back: 'Back',
@@ -71,7 +70,6 @@ export const ui = {
   },
 
   es: {
-    brand: 'SECURE FAMILY',
     language: 'Idioma',
     skip: 'Saltar al contenido',
     back: 'Volver',

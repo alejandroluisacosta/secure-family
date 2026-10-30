@@ -1,4 +1,4 @@
-import { escapeHtml } from '../lib/html.js';
+import { escapeHtml, logo } from '../lib/html.js';
 
 // First visit only: a full-page language choice. Both languages are shown at once,
 // since we don't know yet which one the visitor reads.
@@ -31,7 +31,7 @@ function spainFlag() {
 export function welcomeView() {
   return `
     <div class="welcome">
-      <span class="brand">SECURE FAMILY</span>
+      ${logo()}
       <div class="welcome__body">
         <h1 class="welcome__title" tabindex="-1">
           <span lang="en">Choose your language</span>
