@@ -7,11 +7,14 @@ import { homeView } from './views/home.js';
 import { checkupView } from './views/checkup.js';
 import { resultView } from './views/result.js';
 import { checklistView } from './views/checklist.js';
+import { welcomeView } from './views/welcome.js';
 
 const app = document.getElementById('main');
 
 // Saved progress, plus things that only matter during this visit.
 let state = storage.load();
+// No saved language means a first visit: show the language screen before anything else.
+let choosingLanguage = !state.lang;
 if (!state.lang) state.lang = detectLanguage(navigator.languages || [navigator.language]);
 if (!state.device) state.device = detectDevice(navigator.userAgent);
 const session = { open: null, confirmClear: false };
@@ -49,6 +52,14 @@ function go(hash) {
 }
 
 function render() {
+  if (choosingLanguage) {
+    app.innerHTML = welcomeView();
+    document.documentElement.lang = 'en';
+    document.title = 'Secure Family';
+    app.querySelector('h1')?.focus({ preventScroll: true });
+    return;
+  }
+
   const route = parseRoute(location.hash);
   const ctx = {
     state: { ...state, open: session.open, confirmClear: session.confirmClear },
@@ -97,6 +108,14 @@ function render() {
 }
 
 const actions = {
+  'choose-lang'(el) {
+    state.lang = el.dataset.lang === 'es' ? 'es' : 'en';
+    choosingLanguage = false;
+    persist();
+    lastRouteKey = 'welcome'; // so the first real screen moves focus to its heading
+    render();
+  },
+
   lang(el) {
     state.lang = el.dataset.lang === 'es' ? 'es' : 'en';
     persist();
