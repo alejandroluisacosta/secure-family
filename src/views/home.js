@@ -1,4 +1,4 @@
-import { escapeHtml, icon } from '../lib/html.js';
+import { escapeHtml, icon, logo } from '../lib/html.js';
 import { checklist } from '../content/checklist.js';
 import { questions } from '../content/questions.js';
 import { checklistProgress, nextUnanswered } from '../lib/scoring.js';
@@ -25,7 +25,7 @@ export function homeView(ctx) {
   return `
     <div class="screen screen--home">
       <header class="topbar topbar--home">
-        <span class="brand">${escapeHtml(t('brand'))}</span>
+        ${logo()}
         ${languageToggle(ctx)}
       </header>
 

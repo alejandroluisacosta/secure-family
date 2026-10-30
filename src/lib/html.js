@@ -21,6 +21,14 @@ const PATHS = {
   bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
 };
 
+/** The Secure Family logo: shield with keyhole on a dark tile, and the name on two lines. */
+export function logo() {
+  return `<span class="logo">
+    <span class="logo__mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 3l7 3v5c0 4.6-3 8.1-7 10-4-1.9-7-5.4-7-10V6z"/><circle cx="12" cy="10.5" r="1.8"/><path d="M12 12.3v3"/></svg></span>
+    <span class="logo__name"><span>Secure</span> <span class="logo__accent">Family</span></span>
+  </span>`;
+}
+
 export function icon(name, size = 22, extraClass = '') {
   return `<svg class="icon ${extraClass}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${PATHS[name] || ''}</svg>`;
 }
