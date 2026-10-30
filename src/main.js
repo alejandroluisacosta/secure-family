@@ -78,8 +78,12 @@ function render() {
 
   const focusedKey = document.activeElement?.dataset?.key;
 
+  // Entering the check-up from another screen plays a short intro; moving between questions doesn't.
+  const comingFrom = lastRouteKey;
+  const intro = route.name === 'checkup' && comingFrom !== null && !String(comingFrom).startsWith('checkup');
+
   let html;
-  if (route.name === 'checkup') html = checkupView(ctx, route.index);
+  if (route.name === 'checkup') html = checkupView(ctx, route.index, { intro });
   else if (route.name === 'result') html = resultView(ctx);
   else if (route.name === 'checklist') html = checklistView(ctx);
   else html = homeView(ctx);

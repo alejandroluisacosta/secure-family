@@ -695,3 +695,76 @@ a { color: var(--accent); }
 }
 
 .welcome__note { font-size: 14px; color: var(--muted); }
+
+/* Check-up motion: a short intro when the check-up starts, then each question rises in */
+
+.enter {
+  animation: rise-in 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--enter-base, 0ms) + var(--i, 0) * 70ms);
+}
+.is-intro { --enter-base: 700ms; }
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+.progress__fill--grow { animation: grow 450ms ease-out both; animation-delay: var(--enter-base, 0ms); }
+@keyframes grow {
+  from { width: var(--from); }
+}
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--background);
+  animation: splash-out 280ms ease-in 620ms both;
+}
+@keyframes splash-out {
+  to { opacity: 0; visibility: hidden; }
+}
+
+.splash__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  height: 104px;
+  border-radius: 32px;
+  background: var(--dark);
+  color: var(--light-brown);
+  box-shadow: var(--shadow-strong);
+  animation: badge-pop 420ms cubic-bezier(0.3, 1.4, 0.5, 1) both;
+}
+@keyframes badge-pop {
+  from { transform: scale(0.7); opacity: 0; }
+}
+
+.splash__shield,
+.splash__check {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 380ms ease-out forwards;
+}
+.splash__shield { animation-delay: 80ms; }
+.splash__check { animation-delay: 360ms; stroke-width: 2.4; }
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.splash__text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--heading);
+  animation: rise-in 360ms ease-out 200ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter, .progress__fill--grow, .splash__badge, .splash__text { animation: none; }
+  .splash { display: none; }
+}

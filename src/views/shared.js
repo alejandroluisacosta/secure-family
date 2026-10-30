@@ -19,11 +19,11 @@ export function topBar(ctx, { title, backHref = '#/', backLabel }) {
     </header>`;
 }
 
-export function progressBar({ percent, label, onDark = false, valueNow, valueMax }) {
+export function progressBar({ percent, label, onDark = false, valueNow, valueMax, fromPercent }) {
   const aria = label
     ? ` role="progressbar" aria-label="${escapeHtml(label)}" aria-valuemin="0" aria-valuemax="${valueMax}" aria-valuenow="${valueNow}"`
     : ' aria-hidden="true"';
-  return `<div class="progress${onDark ? ' progress--dark' : ''}"${aria}><div class="progress__fill" style="width: ${Number(percent) || 0}%"></div></div>`;
+  return `<div class="progress${onDark ? ' progress--dark' : ''}"${aria}><div class="progress__fill${fromPercent != null ? ' progress__fill--grow' : ''}" style="width: ${Number(percent) || 0}%${fromPercent != null ? `; --from: ${Number(fromPercent) || 0}%` : ''}"></div></div>`;
 }
 
 export function privacyNote(ctx) {
