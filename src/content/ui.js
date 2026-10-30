@@ -23,6 +23,7 @@ export const ui = {
     homeScamTitle: 'Spot the scam',
     homeScamText: 'Coming soon: practise with fake messages',
 
+    checkupIntro: "Let's begin",
     questionOf: 'Question {n} of {total}',
     checkupProgress: 'Check-up progress',
     answerYes: 'Yes',
@@ -91,6 +92,7 @@ export const ui = {
     homeScamTitle: 'Detecta la estafa',
     homeScamText: 'Próximamente: practica con mensajes falsos',
 
+    checkupIntro: 'Empecemos',
     questionOf: 'Pregunta {n} de {total}',
     checkupProgress: 'Progreso de la revisión',
     answerYes: 'Sí',
