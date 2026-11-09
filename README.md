@@ -46,9 +46,16 @@ Traffic light: 8 or more safe answers is green, 5 to 7 is amber, fewer than 5 is
 
 ## Deploy
 
-The site is published with GitHub Pages at https://alejandroluisacosta.github.io/secure-family/.
+The site is published with GitHub Pages at https://securefamily.alejandroluis.com. The old address, https://alejandroluisacosta.github.io/secure-family/, redirects there.
 
-`.github/workflows/deploy.yml` runs the tests on every pull request. On every push to `main` it also builds the site and publishes it. One-time setup: **Settings → Pages → Source: GitHub Actions**.
+`.github/workflows/deploy.yml` runs the tests on every pull request. On every push to `main` it also builds the site and publishes it.
+
+One-time setup:
+
+- **Settings → Pages → Source:** GitHub Actions
+- **Settings → Pages → Custom domain:** `securefamily.alejandroluis.com`, with **Enforce HTTPS** on
+- **DNS:** a `CNAME` record from `securefamily` to `alejandroluisacosta.github.io`
+- **Domain verification** (account Settings → Pages) for `alejandroluis.com`, so no one else can claim the subdomain
 
 It is a plain static site (`npm run build` → `dist/`), so any static host works too.
 

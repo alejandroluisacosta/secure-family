@@ -26,8 +26,13 @@ grandparents). Its credibility depends on keeping these promises:
 
 ## Non-derivable facts
 
-- Deployed to GitHub Pages under `/secure-family/`. That is why routing uses
-  the URL hash and `vite.config.js` sets `base: './'`. Keep both.
+- Served by GitHub Pages at `securefamily.alejandroluis.com`. The domain is
+  set in Settings → Pages, not with a `CNAME` file, because the site deploys
+  through Actions. Pages has no server-side rewrites, so routing uses the URL
+  hash, and `vite.config.js` sets `base: './'` so the build works at any
+  path. Keep both.
+- Saved progress is per domain: changing the domain again resets every
+  visitor's answers and checklist.
 - The source runs as plain browser modules with no build step, and tests use
   Node's built-in runner. Keep it that way: no frameworks, and no new
   dependency unless its value clearly outweighs its maintenance cost.
