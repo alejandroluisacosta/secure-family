@@ -275,7 +275,7 @@ export const checklist = [
     },
     why: {
       en: "It remembers a different strong password for every account, so you don't have to.",
-      es: 'Recuerda una contraseña fuerte y distinta para cada cuenta, para que tú no tengas que hacerlo.',
+      es: 'Un gestor de contraseñas recuerda por ti una contraseña fuerte y distinta para cada cuenta.',
     },
     tip: {
       en: "Change your passwords little by little, as you use each site. You don't need to do them all today.",
